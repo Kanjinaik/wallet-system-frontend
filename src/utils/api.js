@@ -1,9 +1,13 @@
 import axios from 'axios';
 
+const envBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').trim();
+const normalizedBaseUrl = envBaseUrl.replace(/\/+$/, '');
+
 // Create axios instance
 const api = axios.create({
-    // Use Vite proxy so browser stays on one port (frontend port).
-    baseURL: '/api',
+    // In production, use the deployed backend URL from env.
+    // In local development, fall back to the Vite proxy.
+    baseURL: normalizedBaseUrl || '/api',
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
