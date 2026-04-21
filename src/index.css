@@ -1,0 +1,193 @@
+:root {
+  --ui-bg: #0b0f19;
+  --ui-surface: rgba(20, 26, 38, 0.65);
+  --ui-surface-solid: #141a26;
+  --ui-surface-soft: rgba(30, 41, 59, 0.5);
+  --ui-border: rgba(255, 255, 255, 0.08);
+  --ui-text: #f8fafc;
+  --ui-muted: #94a3b8;
+  --ui-primary: #00f0ff;
+  --ui-primary-dark: #00b8f0;
+  --ui-accent: #8b5cf6;
+  --ui-success: #10b981;
+  --ui-danger: #ef4444;
+  --ui-shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.2);
+  --ui-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --ui-glass-blur: blur(16px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--ui-text);
+  background: var(--ui-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.011em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.022em;
+  font-weight: 700;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Glassmorphism Defaults */
+.card,
+.modal-content,
+.list-group-item {
+  background: var(--ui-surface);
+  backdrop-filter: var(--ui-glass-blur);
+  -webkit-backdrop-filter: var(--ui-glass-blur);
+  border: 1px solid var(--ui-border);
+  color: var(--ui-text);
+  border-radius: 16px;
+  box-shadow: var(--ui-shadow-md);
+}
+
+.table {
+  color: var(--ui-text);
+  border-color: var(--ui-border);
+}
+
+.form-control,
+.form-select {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--ui-text) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--ui-primary);
+  box-shadow: 0 0 0 0.2rem rgba(0, 240, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.form-control::placeholder {
+  color: #64748b;
+}
+
+/* Base Buttons */
+.btn {
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  border: none;
+  background: linear-gradient(135deg, var(--ui-primary) 0%, var(--ui-accent) 100%);
+  color: #0b0f19 !important;
+  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 240, 255, 0.4);
+}
+
+/* Tables */
+.table thead th {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--ui-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.8px;
+  border-bottom: 1px solid var(--ui-border);
+}
+
+.table> :not(caption)>*>* {
+  background: transparent !important;
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+  color: var(--ui-text);
+  vertical-align: middle;
+}
+
+.table tbody tr:hover * {
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Toastify */
+.Toastify__toast {
+  border: 1px solid var(--ui-border);
+  border-radius: 12px;
+  box-shadow: var(--ui-shadow-md);
+  background: var(--ui-surface-solid);
+  color: var(--ui-text);
+}
+
+.Toastify__toast-theme--light {
+  background: var(--ui-surface-solid);
+  color: var(--ui-text);
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .container,
+  .container-fluid {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .card {
+    border-radius: 14px;
+  }
+
+  .table {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13.5px;
+  }
+
+  .btn {
+    min-height: 42px;
+    padding: 0.5rem 1rem;
+  }
+
+  .form-control,
+  .form-select {
+    min-height: 42px;
+    font-size: 0.95rem;
+  }
+
+  .Toastify__toast {
+    margin: 0 8px;
+    border-radius: 12px;
+  }
+}
